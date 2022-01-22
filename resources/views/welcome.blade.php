@@ -21,67 +21,29 @@
         <form action="" method="post" action="{{ route('contact.save') }}">
             @csrf
 
-            <div class="form-group">
-                <label>Name</label>
-                <input type="text" class="form-control" name="name" id="name">
+            <x-forms.input label="Name" type="text" name="name" id="name" class="alert alert-danger"/>
 
-                <!-- Show error -->
-                @if ($errors->has('name'))
-                    <div class="alert alert-danger">
-                        {{ $errors->first('name') }}
-                    </div>
-                @endif
-            </div>
+            <x-forms.input label="Email" type="text" name="email" id="email" class="alert alert-danger"/>
 
-            <div class="form-group">
-                <label>Email</label>
-                <input type="email" class="form-control" name="email" id="email">
+            <x-forms.input label="Phone" type="text" name="phone" id="phone" class="alert alert-danger"/>
 
-                <!-- Show error -->
-                @if ($errors->has('email'))
-                    <div class="alert alert-danger">
-                        {{ $errors->first('email') }}
-                    </div>
-                @endif                
-            </div>
+            <x-forms.input label="Subject" type="text" name="subject" id="subject" class="alert alert-danger"/>
 
-            <div class="form-group">
-                <label>Phone</label>
-                <input type="text" class="form-control" name="phone" id="phone">
-
-                <!-- Show error -->
-                @if ($errors->has('phone'))
-                    <div class="alert alert-danger">
-                        {{ $errors->first('phone') }}
-                    </div>
-                @endif                                
-            </div>
-
-            <div class="form-group">
-                <label>Subject</label>
-                <input type="text" class="form-control" name="subject" id="subject">
-
-                <!-- Show error -->
-                @if ($errors->has('subject'))
-                    <div class="alert alert-danger">
-                        {{ $errors->first('subject') }}
-                    </div>
-                @endif                 
-            </div>
-
+            <x-forms.textarea label="Message" name="message" id="message" rows="5" class="alert alert-danger"/>
+<!-- 
             <div class="form-group">
                 <label>Message</label>
                 <textarea class="form-control" name="message" id="message" rows="5"></textarea>
-
+ -->
                 <!-- Show error -->
-                @if ($errors->has('message'))
+               <!--  @if ($errors->has('message'))
                     <div class="alert alert-danger">
                         {{ $errors->first('message') }}
                     </div>
                 @endif                    
-            </div>
-
-            <input type="submit" name="send" value="Send" class="btn btn-dark btn-block">
+            </div> -->
+            <x-forms.submit type="submit" name="send" value="Send" class="btn btn-dark btn-block"/>
+            <!-- <input type="submit" name="send" value="Send" class="btn btn-dark btn-block"> -->
         </form>
     </div>
 </body>
